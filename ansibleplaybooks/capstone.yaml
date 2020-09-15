@@ -1,0 +1,11 @@
+- hosts: localhost
+  remote_user: root
+  tasks:
+  - name: install jenkins
+    command: wget -q -O -https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+  - name: insall jenkins
+    command: echo "deb https://pkg.jenkins.io/debian-stable binary/" >> /etc/apt/sources.list
+  - name: Update repositories cache andinsall jenkins
+    apt:
+      name: jenkins
+      update_cache: yes
